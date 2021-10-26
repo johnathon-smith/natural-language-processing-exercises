@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from bs4 import BeautifulSoup
-from request import get
+from requests import get
 import os
 
 #Since these blog articles will have similar structure, create a function that loops through
@@ -19,7 +19,7 @@ def get_blog_articles(refresh = False):
     filename = 'codeup_blog_posts.csv'
 
     #Check for 'codeup_blog_posts.csv'
-    if os.path.is_file(filename) && refresh == False:
+    if os.path.isfile(filename) and refresh == False:
         return pd.read_csv(filename)
     else:
         #Create the list of urls
@@ -104,7 +104,7 @@ def get_news_articles(categories = ['business', 'sports', 'technology', 'enterta
     filename = 'news_articles.csv'
 
     #Check for 'news_articles.csv'
-    if os.path.isfile(filename) && refresh == False:
+    if os.path.isfile(filename) and refresh == False:
         return pd.read_csv(filename)
     else:
         #First, create the empty list of article dicts
