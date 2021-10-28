@@ -99,14 +99,14 @@ def remove_stopwords(string, extra_words = [], exclude_words = []):
     
     return filtered_string
 
-def prepare_articles(df, extra_words = [], exclude_words = []):
+def prepare_articles(df, col, extra_words = [], exclude_words = []):
     """
     This function will take in a df and prepare the articles within. It will utilize the functions defined above and return the df with
     new columns for the original, cleaned, stemmed, and lemmatized versions of the content.
     """
 
     #rename the content column to be original
-    df.rename(columns = {'content':'original'}, inplace = True)
+    df.rename(columns = {col:'original'}, inplace = True)
 
     #create the 'clean' column
     df['clean'] = df['original']
